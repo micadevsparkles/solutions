@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicaDev Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo-container">
+            <span class="logo-text">MicaDev</span>
+            <span class="sparkles">✨</span> </div>
+        <div class="cart-icon-container" onclick="openCart()">
+            <i class="fa fa-shopping-cart"></i>
+            <div id="cart-count" class="cart-dot" style="display:none;">0</div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        
+        <div id="ads-mobile" class="ads-container mobile-only">
+            </div>
+
+        <main id="products-grid" class="products-grid">
+            <p style="text-align:center; width:100%;">Carregando soluções...</p>
+        </main>
+
+        <aside id="ads-desktop" class="ads-container desktop-only">
+            </aside>
+
+    </div>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('product-modal')">&times;</span>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('cart-modal')">&times;</span>
+            <h2>Seu Carrinho</h2>
+            <div id="cart-items-container"></div>
+            <div class="cart-footer">
+                <p>Total Selecionado: R$ <span id="cart-total-display">0,00</span></p>
+                <button class="action-btn" onclick="openCheckoutForm('cart')">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('checkout-modal')">&times;</span>
+            <h2>Dados para Entrega</h2>
+            <form id="order-form" onsubmit="handleFormSubmit(event)">
+                <input type="text" name="nome" placeholder="Nome Completo" required>
+                <input type="text" name="cpf" placeholder="CPF" required>
+                <input type="text" name="email" placeholder="E-mail" required>
+                <input type="text" name="whatsapp" placeholder="WhatsApp" required>
+                <input type="text" name="cep" placeholder="CEP" required>
+                <input type="text" name="cidade" placeholder="Cidade" required>
+                <input type="text" name="bairro" placeholder="Bairro" required>
+                <input type="text" name="endereco" placeholder="Endereço (Rua)" required>
+                <input type="text" name="numero" placeholder="Número" required>
+                <textarea name="observacoes" placeholder="Observações (Opcional)"></textarea>
+                
+                <button type="submit" class="action-btn">Ir para Pagamento</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
