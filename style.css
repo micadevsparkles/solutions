@@ -253,23 +253,23 @@ body {
     
 }
 
-.var-container {
-    margin-bottom: 10px;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
+/* Seletor ultra-específico para as variações */
+#modal-body .var-container,
+#modal-body .var-item,
+#modal-body .var-label,
+#modal-body .var-text,
+#modal-body .var-title {
     font-family: 'Roboto', sans-serif !important;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    color: #333 !important;
+    -webkit-font-smoothing: antialiased;
 }
 
-.var-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+/* Garante que o checkbox não herde fonte estranha */
+#modal-body input[type="checkbox"] {
     font-family: 'Roboto', sans-serif !important;
-    font-weight: 400;
-    font-size: 14px;
+}
 }
 
 .price-display {
