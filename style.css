@@ -244,6 +244,11 @@ body {
     margin-bottom: 15px;
     font-size: 14px;
     color: #555;
+    font-family: 'Roboto', sans-serif; /* Define a nova fonte */
+    font-weight: 400; /* Define a espessura (300 é leve, 400 é normal) */
+    line-height: 1.6; /* Melhora a leitura do texto corrido */
+}
+    
 }
 
 .var-container {
