@@ -38,12 +38,8 @@ body {
 }
 
 .sparkles {
+    color: white; /* Emoji renderizado como texto preto via filtro se necessário, mas emojis têm cor própria. Hack CSS para forçar preto se o sistema permitir, ou assumimos o padrão */
     margin-left: 2px;
-    display: inline-block;
-    /* O filtro abaixo transforma qualquer cor em branco */
-    filter: brightness(0) invert(1); 
-    /* Ajuste fino para garantir que fique bem nítido */
-    opacity: 0.9;
 }
 
 .cart-icon-container {
