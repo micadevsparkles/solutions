@@ -43,7 +43,7 @@ body {
     /* O filtro abaixo transforma qualquer cor em branco */
     filter: brightness(0) invert(1); 
     /* Ajuste fino para garantir que fique bem nítido */
-    opacity: 0.9;
+    opacity: 0;
 }
 
 .cart-icon-container {
