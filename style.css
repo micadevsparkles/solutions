@@ -273,6 +273,7 @@ font-family: 'Roboto', cursive !important;
 /* Garante que o checkbox não herde fonte estranha */
 #modal-body input[type="checkbox"] {
     font-family: 'Roboto', sans-serif !important;
+    text-transform: none !important;
 }
 }
 
