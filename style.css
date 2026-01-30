@@ -262,7 +262,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 .price-display {
