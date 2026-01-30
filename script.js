@@ -20,7 +20,7 @@ function linkify(text) {
     if (!text) return "";
     const urlPattern = /(\b(https?||ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     return text.toString().replace(urlPattern, function(url) {
-        return `<a href="${url}" target="_blank" style="color: #000; text-decoration: underline; font-weight: bold;">${url}</a>`;
+        return `<a href="${url}" target="_blank" style="color: blue; text-decoration: underline; font-weight: bold;">${url}</a>`;
     });
 }
 
