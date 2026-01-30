@@ -34,7 +34,7 @@ body {
 .logo-text {
     color: white;
     font-size: 20px;
-    font-family: 'Bungee', sans-serif;
+    font-family: 'Bungee', cursive !important;
 }
 
 .sparkles {
