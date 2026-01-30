@@ -24,7 +24,6 @@ body {
     padding: 0 20px;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    font-family: 'Bungee', sans-serif;
 }
 
 .logo-container {
@@ -35,6 +34,7 @@ body {
 .logo-text {
     color: white;
     font-size: 20px;
+    font-family: 'Bungee', sans-serif;
 }
 
 .sparkles {
