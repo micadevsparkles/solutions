@@ -37,7 +37,7 @@ body {
 }
 
 .sparkles {
-    color: black; /* Emoji renderizado como texto preto via filtro se necessário, mas emojis têm cor própria. Hack CSS para forçar preto se o sistema permitir, ou assumimos o padrão */
+    color: white; /* Emoji renderizado como texto preto via filtro se necessário, mas emojis têm cor própria. Hack CSS para forçar preto se o sistema permitir, ou assumimos o padrão */
     margin-left: 2px;
 }
 
