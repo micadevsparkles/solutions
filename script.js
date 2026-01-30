@@ -33,23 +33,55 @@ async function fetchData() {
 }
 
 // 2. Renderizar Produtos
-function renderProducts() {
-    const grid = document.getElementById('products-grid');
-    grid.innerHTML = "";
-
-    productsData.forEach(prod => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.onclick = () => openProduct(prod);
-        
-        card.innerHTML = `
-            <img src="${prod.imagem}" alt="${prod.nome}" class="card-img">
-            <div class="card-title">${prod.nome}</div>
-        `;
-        grid.appendChild(card);
+// Função para transformar texto em link clicável
+function linkify(text) {
+    if (!text) return "";
+    const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.toString().replace(urlPattern, function(url) {
+        return `<a href="${url}" target="_blank" style="color: #000; text-decoration: underline; font-weight: bold;">${url}</a>`;
     });
 }
 
+function openProduct(prod) {
+    currentProduct = prod;
+    currentVars = []; 
+    
+    const modalBody = document.getElementById('modal-body');
+    const modal = document.getElementById('product-modal');
+    
+    let varsHTML = '';
+    for(let i=1; i<=10; i++) {
+        const varName = prod[`variavel${i}`];
+        const varPrice = prod[`precovariavel${i}`];
+        
+        if(varName && varName.toString().trim() !== "") {
+            // Adicionamos a classe 'var-label' para forçar a fonte no CSS
+            varsHTML += `
+                <div class="var-item">
+                    <label class="var-label">
+                        <input type="checkbox" onchange="toggleVar(${i}, ${varPrice})" data-name="${varName}">
+                        <span class="var-text">${varName} (+ R$ ${formatMoney(varPrice)})</span>
+                    </label>
+                </div>
+            `;
+        }
+    }
+
+    modalBody.innerHTML = `
+        <img src="${prod.imagem}" class="detail-img">
+        <div class="detail-title">${prod.nome}</div>
+        <div class="detail-desc">${linkify(prod.descricao)}</div> 
+        <div class="var-container">
+            <strong class="var-title">Escolha as variações:</strong>
+            ${varsHTML}
+        </div>
+        <div class="price-display">Total: R$ <span id="product-final-price">${formatMoney(prod.precofixo)}</span></div>
+        <button class="action-btn" onclick="addToCartCurrent()">Adicionar ao Carrinho</button>
+        <button class="action-btn secondary-btn" onclick="directOrder()">Fazer Pedido Agora</button>
+    `;
+    
+    modal.style.display = "block";
+}
 // 3. Renderizar e Rotacionar Anúncios
 function initAds() {
     const mobileContainer = document.getElementById('ads-mobile');
@@ -88,7 +120,7 @@ function initAds() {
         if(itemsMobile[currentAdIndex]) itemsMobile[currentAdIndex].classList.add('active');
         if(itemsDesktop[currentAdIndex]) itemsDesktop[currentAdIndex].classList.add('active');
 
-    }, 10000); // 10 segundos
+    }, 5000); // 5 segundos
 }
 
 // 4. Modal de Produto
